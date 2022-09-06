@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Word Replace App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+</head>
+<script>
+
+function myFunction() {
+var inptext= $('#inptext').val();
+  $.ajax({
+              url: "/join",
+              type: "POST",
+              data: {inptext:inptext}
+
+          }).done(function(response) {
+            html=null;
+            var html= "<br><p> <b> Replaced Output : <b><p>";
+
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+="<p>"+val+"<p>"
+
+                });
+                html +="<br>";
+                $(".show-data").html('').append(html);
+                
+            });
+            
+};
+
+  </script>
+<div class="body">
+<body>
+    <p>
+        Word replacement API<br><br>
+
+            Type your input<input type="text" id="inptext" name="inptext"><br><br>
+            <button id="clicked" name ="clicked" onclick="myFunction()">Submit</button>
+        </p>
+    </div>
+    <div class="show-data" >
+
+    </div>
+</body>
+</html>
