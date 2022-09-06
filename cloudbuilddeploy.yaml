@@ -4,14 +4,14 @@ steps:
       args:
       - 'build'
       - '-t'
-      - 'gcr.io/exalted-point-361615/wordreplaceapp:$COMMIT_SHA'
+      - 'gcr.io/exalted-point-361615/wordreplaceapp'
       - '.'
 
     - name: 'gcr.io/cloud-builders/docker'
       id: Push
       args:
       - 'push'
-      - 'gcr.io/exalted-point-361615/wordreplaceapp:$COMMIT_SHA'
+      - 'gcr.io/exalted-point-361615/wordreplaceapp'
 
     - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
       entrypoint: gcloud
@@ -20,9 +20,9 @@ steps:
       - 'deploy'
       - 'wordreplaceapp'
       - '--image'
-      - 'gcr.io/exalted-point-361615/wordreplaceapp:$COMMIT_SHA'
+      - 'gcr.io/exalted-point-361615/wordreplaceapp'
       - '--region'
       - 'us-central1'
 
 images:
-    - 'gcr.io/exalted-point-361615/wordreplaceapp:$COMMIT_SHA'
+    - 'gcr.io/exalted-point-361615/wordreplaceapp'
