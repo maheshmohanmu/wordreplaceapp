@@ -7,7 +7,6 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
 </head>
 <script>
-
 function myFunction() {
 var inptext= $('#inptext').val();
   $.ajax({
@@ -31,19 +30,18 @@ var inptext= $('#inptext').val();
             });
             
 };
+</script>
 
-  </script>
 <div class="body">
 <body>
     <p>
         Word replacement API<br><br>
 
             Please type your input <input type="text" id="inptext" name="inptext"><br><br>
-            <button id="clicked" name ="clicked" onclick="myFunction()">Submit</button>
+            <button type="submit" id="clicked" name ="clicked" onclick="myFunction()">Submit</button>
         </p>
-    </div>
-    <div class="show-data" >
-
-    </div>
+</div>
+<div class="show-data" >
+</div>
 </body>
 </html>
